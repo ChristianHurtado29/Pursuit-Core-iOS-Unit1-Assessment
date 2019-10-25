@@ -7,43 +7,44 @@
 //
 import Foundation
 
-struct Game {
-func startGame() {
-
-    var deck = [Card]()
-    var player: Player
-    var hitPlayer = Bool()
-    
+class Game {
+    var deck = Card.newDeck(aceValue: 1)
+    var player = Player(score: 0, cards: [Card](), playerName: "Player")
+    var hitPlayer = true
+        
+//        init(deck: Card,
+//           player: Player,
+//           hitPlayer: Bool,
+//           hasMoreCards: Bool) {
+//        self.deck = deck
+//        self.player = player
+//        self.hitPlayer = hitPlayer
+//    }
     var hasMoreCards: Bool {
-        
-        return !deck.isEmpty
-    }
-    var randomComputerScore: Int {
-        
-        return player.score     // might be wrong
-    }
-        var drawCard = [Card]()
-
-        print("'hit' or 'pass'")
-    var userEntry = readLine()?.lowercased() ?? ""
-    
-    
-    func choice (_ userEntry: String) {
-        switch userEntry {
-        case "hit":
-                func hitMe() -> Card? {
-                    drawCard = drawCard.shuffled()
-                    player.cards += drawCard
-                    return drawCard.popLast()
-                }
-        case "pass":
-            func stopHits() {
                 
+                return deck.count != 0
             }
-        default:
-            print("please type in: 'hit' or 'pass' ")
-                }
+            
+    var randomComputerScore: Int {
+        let compuScore = 15...21
+        
+        return compuScore.randomElement() ?? 17    // might be wrong
     }
+    
+    func newGame() {
+        
+    }
+            
+    func stopHits() {
+                
+    }
+            
+//    func hitMe() -> Card? {
+//    drawCard = drawCard.shuffled()
+//    player.cards += drawCard
+//        return drawCard.popLast()
+//    }
+    
     func computerVsPlayers() {
         let compuPoints = 15...21
         let computerPoints = compuPoints.randomElement() ?? 0
@@ -60,9 +61,14 @@ func startGame() {
             print("Tie game at \(player.score) - \(computerPoints)")
         }
     }
-    }
     
+    func gameStatus() {
+            
+    }
 }
+
+    
+
 
 //func newGame() {
 //    player.cards.count == 0
@@ -84,3 +90,20 @@ func startGame() {
 //    }
 
 
+//===================
+//Possible userEntry readline
+//===================
+/*
+ 
+var userEntry = readLine()?.lowercased() ?? ""
+    switch userEntry {
+case "hit":
+            }
+    case "pass":
+        func stopHits() {
+        }
+    default:
+        print("please type in: 'hit' or 'pass' ")
+            }
+}
+*/
