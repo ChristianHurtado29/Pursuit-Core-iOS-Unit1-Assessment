@@ -12,16 +12,7 @@ class Game {
     var player = Player(score: 0, cards: [Card](), playerName: "Player")
     var hitPlayer = true
         
-//        init(deck: Card,
-//           player: Player,
-//           hitPlayer: Bool,
-//           hasMoreCards: Bool) {
-//        self.deck = deck
-//        self.player = player
-//        self.hitPlayer = hitPlayer
-//    }
     var hasMoreCards: Bool {
-                
                 return deck.count != 0
             }
             
@@ -32,22 +23,26 @@ class Game {
     }
     
     func newGame() {
-        
+       deck = Card.newDeck(aceValue: 1)
+        player.cards.removeAll()
+        player.score = 0
     }
             
     func stopHits() {
-                
+        print(player.score)
     }
             
-//    func hitMe() -> Card? {
-//    drawCard = drawCard.shuffled()
-//    player.cards += drawCard
-//        return drawCard.popLast()
-//    }
+    func hitMe() -> Int {
+       card = deck.shuffled()
+        player.cards += card
+        
+        return 1
+    }
     
     func computerVsPlayers() {
         let compuPoints = 15...21
         let computerPoints = compuPoints.randomElement() ?? 0
+        
         if player.score > 21 {
             print("You lost! 😢")
         }

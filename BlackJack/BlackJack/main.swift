@@ -24,6 +24,12 @@ var game = Game()
 game.newGame()
 //game.startGame()
 
+var hitPass = readLine() ?? ""
+if hitPass == "hit" {
+    game.hitPlayer
+}
+
+
 // There are 52 in a deck of cards
 
 // pushing to github
