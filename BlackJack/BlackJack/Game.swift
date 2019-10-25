@@ -7,8 +7,6 @@
 //
 import Foundation
 
-let game = Game()
-
 struct Game {
 func startGame() {
 
@@ -25,16 +23,25 @@ func startGame() {
         return player.score     // might be wrong
     }
         var drawCard = [Card]()
-        
+
         print("'hit' or 'pass'")
     var userEntry = readLine()?.lowercased() ?? ""
     
-        if userEntry == "hit" {
+    
+    func choice (_ userEntry: String) {
+        switch userEntry {
+        case "hit":
                 func hitMe() -> Card? {
                     drawCard = drawCard.shuffled()
                     player.cards += drawCard
                     return drawCard.popLast()
-                    
+                }
+        case "pass":
+            func stopHits() {
+                
+            }
+        default:
+            print("please type in: 'hit' or 'pass' ")
                 }
     }
     func computerVsPlayers() {
