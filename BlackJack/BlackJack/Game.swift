@@ -22,17 +22,32 @@ func startGame() {
         
         return player.score     // might be wrong
     }
-        var card = [Card]()
+        var drawCard = [Card]()
         
-   
         print("'hit' or 'pass'")
     var userEntry = readLine()?.lowercased() ?? ""
         if userEntry == "hit" {
-                func getCard() -> Card? {
-                    card = card.shuffled()
-                    player.cards += card
-                    return card.popLast()
+                func hitMe() -> Card? {
+                    drawCard = drawCard.shuffled()
+                    player.cards += drawCard
+                    return drawCard.popLast()
                 }
+    }
+    func computerVsPlayers() {
+        let compuPoints = 15...21
+        let computerPoints = compuPoints.randomElement() ?? 0
+        if player.score > 21 {
+            print("You lost! 😢")
+        }
+        if computerPoints > player.score {
+            print("Computer wins, \(computerPoints) - \(player.score)")
+        }
+        if computerPoints < player.score {
+            print("Player wins, \(player.score) - \(computerPoints)")
+        }
+        if computerPoints == player.score {
+            print("Tie game at \(player.score) - \(computerPoints)")
+        }
     }
     }
     
