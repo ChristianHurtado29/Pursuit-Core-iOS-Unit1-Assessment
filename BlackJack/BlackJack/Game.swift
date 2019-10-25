@@ -7,6 +7,8 @@
 //
 import Foundation
 
+let game = Game()
+
 struct Game {
 func startGame() {
 
@@ -26,11 +28,13 @@ func startGame() {
         
         print("'hit' or 'pass'")
     var userEntry = readLine()?.lowercased() ?? ""
+    
         if userEntry == "hit" {
                 func hitMe() -> Card? {
                     drawCard = drawCard.shuffled()
                     player.cards += drawCard
                     return drawCard.popLast()
+                    
                 }
     }
     func computerVsPlayers() {
@@ -51,13 +55,6 @@ func startGame() {
     }
     }
     
-
-//func newGame() {
-//    player.cards.count == 0
-//}
-//    mutating func hitMe() {
-//        player.cards.append(deck.randomElement() ?? )
-//    }
 }
 
 //func newGame() {
