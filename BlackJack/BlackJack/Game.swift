@@ -33,10 +33,13 @@ class Game {
     }
             
     func hitMe() -> Int {
-       card = deck.shuffled()
-        player.cards += card
+       var shuffledDeck = deck.shuffled()
+        if let card = shuffledDeck.popLast() {
+            player.cards.append(card)
+            player.score += card.value
+        }
+        return player.score
         
-        return 1
     }
     
     func computerVsPlayers() {
