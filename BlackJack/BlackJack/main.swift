@@ -11,7 +11,11 @@ import Foundation
 // TODO: remove these lines after you have added the Suit and FaceCard enums as per the assessment README
 print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
 
-startGame()
+print("Welcome to the table!")
+   print("The game we're playing is")
+   sleep(1)
+   print("BLACKJACK!!")
+   print("If you've never played Blackjack before, don't worry. The game is you against the dealer and you're both trying to draw 21 points(Blackjack) without going over(Bust). You will draw cards until you say stop if you're too close to 21 and believe a next 'hit' will throw you over the 21 which is an automatic lose. If neither you or the dealer has 21, the winner is the player with most points.")
 
 // There are 52 in a deck of cards
 

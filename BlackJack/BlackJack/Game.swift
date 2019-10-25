@@ -5,22 +5,11 @@
 //  Created by Christian Hurtado on 10/24/19.
 //  Copyright © 2019 Alex Paul. All rights reserved.
 //
-
 import Foundation
 
-func startGame() {
-    print("Welcome to the table!")
-    print("The game we're playing is")
-    sleep(1)
-    print("BLACKJACK!!")
-    print("'hit' or 'pass'")
-    var userEntry = readLine()
-    if readLine() == "hit" {
-        print(
-    }
-}
-
 struct Game {
+func startGame() {
+
     var deck = [Card]()
     var player: Player
     var hitPlayer = Bool()
@@ -33,7 +22,19 @@ struct Game {
         
         return player.score     // might be wrong
     }
-    
+        var card = [Card]()
+        
+   
+        print("'hit' or 'pass'")
+    var userEntry = readLine()?.lowercased() ?? ""
+        if userEntry == "hit" {
+                func getCard() -> Card? {
+                    card = card.shuffled()
+                    player.cards += card
+                    return card.popLast()
+                }
+    }
+    }
     
 
 //func newGame() {
@@ -43,3 +44,24 @@ struct Game {
 //        player.cards.append(deck.randomElement() ?? )
 //    }
 }
+
+//func newGame() {
+//    player.cards.count == 0
+//}
+//    mutating func hitMe() {
+//        player.cards.append(deck.randomElement() ?? )
+//    }
+//}
+
+//var userEntry = readLine()
+//if readLine() == "hit" {
+//    print(
+//}
+//
+//if readLine() == "hit" {
+//    func getCard() -> Card? {
+//        card = card.shuffled()
+//        return card.popLast()
+//    }
+
+
