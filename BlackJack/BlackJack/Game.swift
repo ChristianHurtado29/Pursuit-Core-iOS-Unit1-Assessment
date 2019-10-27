@@ -29,6 +29,7 @@ class Game {
     }
             
     func stopHits() {
+        print("")
         print(player.score)
     }
             
@@ -36,10 +37,10 @@ class Game {
        var shuffledDeck = deck.shuffled()
         if let card = shuffledDeck.popLast() {
             player.cards.append(card)
+            print(card)
             player.score += card.value
         }
         return player.score
-        
     }
     
     func computerVsPlayers() {
@@ -61,7 +62,7 @@ class Game {
     }
     
     func gameStatus() {
-            
+        print("the player's score is \(player.score) and the computer's score is \(randomComputerScore)")
     }
 }
 

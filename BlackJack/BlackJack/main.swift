@@ -19,16 +19,35 @@ print("Welcome to the table!")
    sleep(1)
    print("BLACKJACK!!")
    print("If you've never played Blackjack before, don't worry. The game is you against the dealer and you're both trying to draw 21 points(Blackjack) without going over(Bust). You will draw cards until you say stop if you're too close to 21 and believe a next 'hit' will throw you over the 21 which is an automatic lose. If neither you or the dealer has 21, the winner is the player with most points.")
+ print("Are you ready?")
+
 var game = Game()
 
-game.newGame()
+var gameOver = false
+
+repeat {
+    
+    repeat{
+    let beginningMsg = """
+    please enter 'hit' or 'pass'
+    """
+    print(beginningMsg)
+    
+    let hit = readLine() ?? ""
+    if hit == "hit" {
+    game.hitMe()
+    }
+    if hit == "pass" {
+        game.stopHits()
+        }
+        
+} while game.hasMoreCards
+        
+  
+
+    
+} while gameOver == false
 //game.startGame()
-
-var hitPass = readLine() ?? ""
-if hitPass == "hit" {
-    game.hitPlayer
-}
-
 
 // There are 52 in a deck of cards
 
