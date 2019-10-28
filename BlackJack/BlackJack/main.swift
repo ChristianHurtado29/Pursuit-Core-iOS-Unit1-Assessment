@@ -33,17 +33,13 @@ repeat {
     """
     print(beginningMsg)
     
-    let hit = readLine() ?? ""
-    if hit == "hit" {
-    game.hitMe()
-    }
-    if hit == "pass" {
-        game.stopHits()
-        }
         
-} while game.hasMoreCards
-        
-  
+let userHit = readLine() ?? ""
+    game.hitMe(userHit)
+    game.stopHits(userHit)
+    } while game.hasMoreCards
+    
+    game.computerVsPlayers()
 
     
 } while gameOver == false

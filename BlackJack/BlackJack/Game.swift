@@ -28,17 +28,28 @@ class Game {
         player.score = 0
     }
             
-    func stopHits() {
+    func stopHits(_ userHit: String) {
         print("")
         print(player.score)
+        game.hasMoreCards == false
     }
             
-    func hitMe() -> Int {
+    func hitMe(_ userHit: String) -> Int {
+        switch userHit {
+        case "hit":
        var shuffledDeck = deck.shuffled()
         if let card = shuffledDeck.popLast() {
             player.cards.append(card)
             print(card)
             player.score += card.value
+        }
+        return player.score
+        case "pass":
+            game.stopHits(userHit)
+            print(player.score)
+            gameOver == true
+        default:
+            print("enter 'hit' or 'pass' please")
         }
         return player.score
     }
