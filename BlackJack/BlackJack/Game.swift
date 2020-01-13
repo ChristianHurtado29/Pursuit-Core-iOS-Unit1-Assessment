@@ -18,20 +18,26 @@ class Game {
             
     var randomComputerScore: Int {
         let compuScore = 15...21
-        
+
         return compuScore.randomElement() ?? 17    // might be wrong
     }
-    
+
     func newGame() {
        deck = Card.newDeck(aceValue: 1)
         player.cards.removeAll()
         player.score = 0
     }
             
-    func stopHits(_ userHit: String) {
+    func stopHits() {
         print("")
         print(player.score)
+//        print("the computer has \(randomComputerScore)")
+        if randomComputerScore > player.score{
+//            print("you lose, \(randomComputerScore) - \(player.score)")
+    keepGoing = false
+            gameOver = false
         game.hasMoreCards == false
+    }
     }
             
     func hitMe(_ userHit: String) -> Int {
@@ -40,14 +46,21 @@ class Game {
        var shuffledDeck = deck.shuffled()
         if let card = shuffledDeck.popLast() {
             player.cards.append(card)
-            print(card)
+            print(card.stringify())
             player.score += card.value
-        }
+            print("player score: \(player.score)")
+            if player.score >= 21 {
+       //         stopHits()
+                computerVsPlayers()
+            }
+       }
         return player.score
         case "pass":
-            game.stopHits(userHit)
-            print(player.score)
-            gameOver == true
+            game.stopHits()
+            print("Player score: \(player.score)")
+            gameOver = false
+            keepGoing = false
+            computerVsPlayers()
         default:
             print("enter 'hit' or 'pass' please")
         }
@@ -70,50 +83,22 @@ class Game {
         if computerPoints == player.score {
             print("Tie game at \(player.score) - \(computerPoints)")
         }
+        
+        print("New game? 'yes' or 'no'?")
+        let maybe = readLine()
+            if maybe == "yes"{
+                game.newGame()
+        }
+        if maybe == "no"{
+            print("thanks for playing!")
+        }
+        
+        keepGoing = false
+            gameOver = false
+        game.hasMoreCards == false
     }
     
     func gameStatus() {
         print("the player's score is \(player.score) and the computer's score is \(randomComputerScore)")
     }
 }
-
-    
-
-
-//func newGame() {
-//    player.cards.count == 0
-//}
-//    mutating func hitMe() {
-//        player.cards.append(deck.randomElement() ?? )
-//    }
-//}
-
-//var userEntry = readLine()
-//if readLine() == "hit" {
-//    print(
-//}
-//
-//if readLine() == "hit" {
-//    func getCard() -> Card? {
-//        card = card.shuffled()
-//        return card.popLast()
-//    }
-
-
-//===================
-//Possible userEntry readline
-//===================
-/*
- 
-var userEntry = readLine()?.lowercased() ?? ""
-    switch userEntry {
-case "hit":
-            }
-    case "pass":
-        func stopHits() {
-        }
-    default:
-        print("please type in: 'hit' or 'pass' ")
-            }
-}
-*/

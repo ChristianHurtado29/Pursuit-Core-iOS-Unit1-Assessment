@@ -23,6 +23,7 @@ print("Welcome to the table!")
 
 var game = Game()
 
+var keepGoing = true
 var gameOver = false
 
 repeat {
@@ -35,9 +36,12 @@ repeat {
     
         
 let userHit = readLine() ?? ""
-    game.hitMe(userHit)
-    game.stopHits(userHit)
-    } while game.hasMoreCards
+        if userHit == "hit" {
+            game.hitMe(userHit)
+        } else if userHit == "pass"{
+            game.stopHits()
+        }
+    } while keepGoing
     
     game.computerVsPlayers()
 

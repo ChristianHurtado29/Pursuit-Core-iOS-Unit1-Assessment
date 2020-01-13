@@ -9,7 +9,7 @@
 import Foundation
 
 enum Suit:String, CaseIterable {
-    case hearts = "🤴🏾"
+    case hearts = "♥️"
     case diamonds = "♦️"
     case spades = "♠️"
     case clubs = "♣️"
