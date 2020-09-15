@@ -33,10 +33,11 @@ class Game {
         print(player.score)
 //        print("the computer has \(randomComputerScore)")
         if randomComputerScore > player.score{
-//            print("you lose, \(randomComputerScore) - \(player.score)")
-    keepGoing = false
-            gameOver = false
-        game.hasMoreCards == false
+            computerVsPlayers()
+////            print("you lose, \(randomComputerScore) - \(player.score)")
+//    keepGoing = true
+//            gameOver = false
+//        game.hasMoreCards == false
     }
     }
             
@@ -86,15 +87,16 @@ class Game {
         
         print("New game? 'yes' or 'no'?")
         let maybe = readLine()
-            if maybe == "yes"{
-                game.newGame()
+        if maybe == "yes"{
+            game.newGame()
         }
         if maybe == "no"{
             print("thanks for playing!")
+            gameOver = true
         }
         
         keepGoing = false
-            gameOver = false
+        gameOver = false
         game.hasMoreCards == false
     }
     

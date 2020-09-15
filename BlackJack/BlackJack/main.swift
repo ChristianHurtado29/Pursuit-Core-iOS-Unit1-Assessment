@@ -43,9 +43,7 @@ let userHit = readLine() ?? ""
         }
     } while keepGoing
     
-    game.computerVsPlayers()
-
-    
+//    game.computerVsPlayers()
 } while gameOver == false
 //game.startGame()
 
