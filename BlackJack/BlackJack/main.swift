@@ -37,7 +37,6 @@ repeat {
         
 let userHit = readLine() ?? ""
         if userHit == "hit" {
-            game.hitMe(userHit)
         } else if userHit == "pass"{
             game.stopHits()
         }

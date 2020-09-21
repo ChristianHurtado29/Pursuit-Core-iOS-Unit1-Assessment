@@ -96,9 +96,7 @@ class Game {
         }
         
         keepGoing = false
-        gameOver = false
-        game.hasMoreCards == false
-    }
+        gameOver = false    }
     
     func gameStatus() {
         print("the player's score is \(player.score) and the computer's score is \(randomComputerScore)")
